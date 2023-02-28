@@ -1,54 +1,72 @@
-/home/wmgreen/repos/Java Projects
+
 import java.util.Scanner;
 import java.util.Random;
 import java.util.*;
 import java.util.ArrayList;
-public class Main {
+public class tictactoe {
     
     
     
     public static void main(String[] args){
         char[][] test = {{'-','-','-',},{'-','-','-',},{'-','-','-',}};
         boolean GameWin = false;
+        boolean gamego = true;
+        
     
         
         System.out.println("Original array: ");
         board(test);
     
         
-        while(GameWin == false){
+        while(GameWin == false || gamego == true){
          playerturn(test);
         System.out.println("Updated Array:");
         board(test);
         getNextMove(test);
         System.out.println("Updated Array:");
         board(test);
+        char tar = '-';
         
-        if(test[0][0]=='x' &&test[0][1]=='x' &&test[0][2]=='x'){
+
+        for (int i =0; i < test.length; i++){
+            for (int j = 0; j < test[i].length; j++){
+                if(test[i][j]!= tar){
+                    gamego = false;
+                    break;
+                }
+        
+            }
+            }
+        }
+        
+        if(test[0][0]=='x' &&test[0][1]=='x' &&test[0][2]=='x'
+        &&test[0][0]=='o' &&test[0][1]=='o' &&test[0][2]=='o'){
             GameWin = true;
-        }else if(test[1][0]=='x'&&test[1][1]=='x'&&test[1][2]=='x'){
+        }else if(test[1][0]=='x'&&test[1][1]=='x'&&test[1][2]=='x'
+        &&test[1][0]=='o' &&test[1][1]=='o' &&test[1][2]=='o'){
             GameWin = true;
-        }else if(test[2][0]=='x'&&test[2][1]=='x'&&test[2][2]=='x'){
+        }else if(test[2][0]=='x'&&test[2][1]=='x'&&test[2][2]=='x'
+        &&test[2][0]=='o' &&test[2][1]=='o' &&test[2][2]=='o'){
+            GameWin = true;}
+            else if(test[0][0]=='x'&&test[1][0]=='x'&&test[2][0]=='x'
+            &&test[1][0]=='o' &&test[1][0]=='o' &&test[2][0]=='o'){
+                GameWin = true;
+        }else if(test[0][1]=='x'&&test[1][1]=='x'&&test[2][2]=='x'
+        &&test[0][1]=='o' &&test[1][1]=='o' &&test[2][2]=='o'){
             GameWin = true;
-        }else if(test[2][0]=='x'&&test[2][1]=='x'&&test[2][2]=='x'){
+        }else if(test[0][2]=='x'&&test[1][2]=='x'&&test[2][3]=='x'
+        &&test[0][2]=='o' &&test[1][2]=='o' &&test[2][3]=='o'){
             GameWin = true;
-        }else if(test[0][0]=='x'&&test[1][0]=='x'&&test[2][0]=='x'){
+        }else if(test[0][0]=='x'&&test[1][1]=='x'&&test[2][2]=='x'
+        &&test[0][0]=='o' &&test[1][1]=='o' &&test[2][2]=='o'){
             GameWin = true;
-        }else if(test[0][1]=='x'&&test[1][1]=='x'&&test[2][2]=='x'){
-            GameWin = true;
-        }else if(test[0][2]=='x'&&test[1][2]=='x'&&test[2][3]=='x'){
-            GameWin = true;
-        }else if(test[0][0]=='x'&&test[1][1]=='x'&&test[2][2]=='x'){
-            GameWin = true;
-        }else if(test[2][1]=='x'&&test[1][1]=='x'&&test[0][2]=='x'){
+        }else if(test[2][1]=='x'&&test[1][1]=='x'&&test[0][2]=='x'
+        &&test[2][1]=='o' &&test[1][1]=='o' &&test[0][2]=='o'){
             GameWin = true;
         }
-
-    }
     }
     
-   
-  
+ 
 
  
 public static void board(char[][] arr) {
