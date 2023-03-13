@@ -26,46 +26,53 @@ public class tictactoe {
         System.out.println("Updated Array:");
         board(test);
         char tar = '-';
-        
-
-        for (int i =0; i < test.length; i++){
+        for (int i = 0; i < test.length; i++){
             for (int j = 0; j < test[i].length; j++){
-                if(test[i][j]!= tar){
+                if (test[i][j] == '-'){
+                    gamego = true;
+                }else{
                     gamego = false;
-                    break;
                 }
-        
-            }
             }
         }
         
-        if(test[0][0]=='x' &&test[0][1]=='x' &&test[0][2]=='x'
-        &&test[0][0]=='o' &&test[0][1]=='o' &&test[0][2]=='o'){
+        
+        
+        
+        if(test[0][0]=='x' &&test[0][1]=='x' &&test[0][2]=='x'){
             GameWin = true;
-        }else if(test[1][0]=='x'&&test[1][1]=='x'&&test[1][2]=='x'
-        &&test[1][0]=='o' &&test[1][1]=='o' &&test[1][2]=='o'){
+        }else if(test[1][0]=='x'&&test[1][1]=='x'&&test[1][2]=='x'){
             GameWin = true;
-        }else if(test[2][0]=='x'&&test[2][1]=='x'&&test[2][2]=='x'
-        &&test[2][0]=='o' &&test[2][1]=='o' &&test[2][2]=='o'){
+        }else if(test[2][0]=='x'&&test[2][1]=='x'&&test[2][2]=='x'){
+            GameWin = true;
+        }else if(test[0][0]=='x'&&test[1][0]=='x'&&test[2][0]=='x'){
+            GameWin = true;
+        }else if(test[0][1]=='x'&&test[1][1]=='x'&&test[2][2]=='x'){
+            GameWin = true;
+        }else if(test[0][2]=='x'&&test[1][2]=='x'&&test[2][3]=='x'){
+            GameWin = true;
+        }else if(test[0][0]=='x'&&test[1][1]=='x'&&test[2][2]=='x'){
+            GameWin = true;
+        }else if(test[2][1]=='x'&&test[1][1]=='x'&&test[0][2]=='x'){
             GameWin = true;}
-            else if(test[0][0]=='x'&&test[1][0]=='x'&&test[2][0]=='x'
-            &&test[1][0]=='o' &&test[1][0]=='o' &&test[2][0]=='o'){
-                GameWin = true;
-        }else if(test[0][1]=='x'&&test[1][1]=='x'&&test[2][2]=='x'
-        &&test[0][1]=='o' &&test[1][1]=='o' &&test[2][2]=='o'){
+        else if(test[0][0]=='o' &&test[0][1]=='o' &&test[0][2]=='o'){
             GameWin = true;
-        }else if(test[0][2]=='x'&&test[1][2]=='x'&&test[2][3]=='x'
-        &&test[0][2]=='o' &&test[1][2]=='o' &&test[2][3]=='o'){
+        }else if(test[1][0]=='o'&&test[1][1]=='o'&&test[1][2]=='o'){
             GameWin = true;
-        }else if(test[0][0]=='x'&&test[1][1]=='x'&&test[2][2]=='x'
-        &&test[0][0]=='o' &&test[1][1]=='o' &&test[2][2]=='o'){
+        }else if(test[2][0]=='o'&&test[2][1]=='o'&&test[2][2]=='o'){
             GameWin = true;
-        }else if(test[2][1]=='x'&&test[1][1]=='x'&&test[0][2]=='x'
-        &&test[2][1]=='o' &&test[1][1]=='o' &&test[0][2]=='o'){
+        }else if(test[0][0]=='o'&&test[1][0]=='o'&&test[2][0]=='o'){
             GameWin = true;
+        }else if(test[0][1]=='o'&&test[1][1]=='o'&&test[2][2]=='o'){
+            GameWin = true;
+        }else if(test[0][2]=='o'&&test[1][2]=='o'&&test[2][3]=='o'){
+            GameWin = true;
+        }else if(test[0][0]=='o'&&test[1][1]=='o'&&test[2][2]=='o'){
+            GameWin = true;
+        }else if(test[2][1]=='o'&&test[1][1]=='o'&&test[0][2]=='o'){
+            GameWin = true;}
         }
     }
-    
  
 
  
@@ -82,12 +89,12 @@ public static void board(char[][] arr) {
 }
 public static void playerturn(char[][] arr){
     char x = 'x';
+    
     Scanner scan = new Scanner(System.in);
     System.out.println("Enter Row and Column to edit: ");
     int ro= scan.nextInt();
     int co= scan.nextInt();
-    arr[ro][co] = x;
-}
+    arr[ro][co] = x;}
     
 
 
